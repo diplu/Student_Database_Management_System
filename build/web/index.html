@@ -1,0 +1,154 @@
+<!DOCTYPE html>  
+<html>  
+<head>  
+  
+<link rel="stylesheet" type="text/css" href="index.css">
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<title>Insert title here</title>  
+</head>  
+<body> 
+   <div class="container">
+       <div class =" jumbotron">
+           <form  name = "myform" action="SaveServlet" method="post" onsubmit="return validateform()">  
+  <div class="row">
+      <div class="col-25">
+        <label for="id"> <b>Id</b></label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="id" name="id" placeholder="Enter id..">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="name"> <b>Name</b></label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="name" name="name" placeholder="Enter name..">
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="col-25">
+        <label for="stream"><b>Stream</b></label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="stream" name="stream" placeholder="Enter stream..">
+      </div>
+    </div>
+    
+     <div class = "row">
+    <div class = "col-25">
+     <label for="mobilenumber"><b>Mobile No.</b></label>
+     </div>
+     <div class = "col-75">
+    <input type="text" placeholder="Enter Mobile No." name="mno" >
+    </div>
+    </div>
+    
+    <div class = "row">
+    <div class = "col-25">
+     <label for="email"><b>Email</b></label>
+     </div>
+     <div class = "col-75">
+    <input type="text" placeholder="Enter Email" name="email" >
+    </div>
+    </div>
+    
+   
+   
+    <div class="row">
+      <div class="col-25">
+        <label for="subject"><b>Address</b></label>
+      </div>
+      <div class="col-75">
+        <textarea id="address" name="address" placeholder="Write something.." style="height:200px" ></textarea>
+      </div>
+    </div>
+    <div class="row">
+      <input type="submit" value="Submit">
+     
+      <button class="btn btn-success" onclick="window.location.href='ViewServlet'">View</button>
+    </div>
+  </form>
+       </div>
+</div>
+  
+      <script>
+        function validateform() {
+            var id = document.myform.id.value;
+            var name = document.myform.name.value;
+            var stream = document.myform.stream.value;
+             var mno = document.myform.mno.value;
+            var email = document.myform.email.value;
+            var address = document.myform.address.value;
+            
+            
+             if(isNaN(id) || id == "") {
+                alert("Id value should be numeric or not  blank");
+                
+                return false;
+                
+            }
+          //  var illegalChars = /\W/;\
+            var letters = /^[a-zA-Z-,]+(\s{0,1}[a-zA-Z-, ])*$/;
+            
+            if(name == null || name == "") {
+                alert("Name can't be blank");  
+                return false;
+            }
+            
+           if(letters.test(name) == false) {
+             alert("The name contains illegal characters.");
+		return false;
+            }
+      var letter = /^[A-Za-z]+$/;
+     
+      if(stream.length < 2) {
+        alert("Check your stream length");
+        return false;
+    }
+    
+    if(letter.test(stream) == false ) {
+        alert("Give your stream name properly ");
+        return false;
+    }
+   
+    if(stream == null || stream == "") {
+        alert("Stream can't be blank");
+        
+        return false;
+    }
+     var re = /^\d{10}$/;
+            if(re.test(mno) == false || mno == "") {
+                alert("Invalid mobile no ");
+             
+                return false;
+            }
+            
+           var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+            
+            if (reg.test(email) == false ||email == "" ) 
+            {
+                alert('Invalid Email Address ');
+                
+                return (false);
+            }
+           
+            if(address == null || address == "") {
+                alert("Address cannot be blank");
+               
+                return false;
+            }
+            
+            
+            
+        }
+        
+    </script>
+  
+
+</body>  
+</html> 

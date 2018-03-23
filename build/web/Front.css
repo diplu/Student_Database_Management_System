@@ -1,0 +1,13 @@
+
+
+ body {
+            text-align: center;
+            background-size:cover;
+            background-position:center;
+            font-family: helvetica;
+            background-image: url("sebastian-mantel-105235-unsplash.jpg");
+        }
+        nav,navbar {
+            color:blue;
+        }
+   
